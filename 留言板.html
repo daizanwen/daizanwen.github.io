@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>留言板</title>
+		<style>
+			body,div,textarea,button,br{margin: 0; padding: 0;}
+			.wrap{
+				width: 700px;
+				height: 500px;
+				background: url(../图片/timg.jpg) no-repeat;
+				/*background-size: cover;*/
+				margin: auto;
+			}
+			.wrap div{
+				width: 648px;
+				height: 450px;
+				border: 1px solid #CCCCCC;
+				overflow: auto;
+			}
+			textarea{
+				width: 648px;
+				height: 150px;
+			}
+			button{
+				display: inline-block;
+				width: 648px;
+				height: 30px;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="wrap">
+			<div></div>
+			<textarea placeholder="你想对我说什么呀？"></textarea><br />
+			<button>发送</button>
+			<script>
+//				1.页面加载后执行
+				window.onload = function(){
+//					2.获取元素
+					var adiv =document.getElementsByTagName("div")[1];
+					var otext =document.getElementsByTagName("textarea")[0];
+					var obtn =document.getElementsByTagName("button")[0];
+					var floor =0;
+//					3.点击事件
+					obtn.onclick = function(){
+//						4.楼层自增1
+						floor++;
+						
+//						5.将文本域的值赋予texte
+						var texte =otext.value;
+						console.log(texte);
+//						6.将文本texte的值赋予给adiv
+						adiv.innerHTML += "<p><span>第"+floor+"楼：</span>"+texte+"</p>";
+						texte.value = "";
+					}
+				}
+			</script>
+		</div>
+	</body>
+</html>
